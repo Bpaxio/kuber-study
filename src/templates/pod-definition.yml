@@ -6,9 +6,9 @@ metadata:
   name: app-pod
   labels:
     app: myapp
-    type: back-end
+    type: application
 
 spec:
   containers:
-    - name: app-controller
-      image: custom-image
+    - name: nginx-container
+      image: nginx
