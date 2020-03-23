@@ -1,0 +1,14 @@
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+  name: app-pod
+  labels:
+    app: myapp
+    type: back-end
+
+spec:
+  containers:
+    - name: app-controller
+      image: custom-image
