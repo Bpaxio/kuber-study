@@ -14,3 +14,25 @@ spec:
     image: nginx
     command: ["overrides default ENTRYPOINT instruction"]
     args: ["overrides default CMD instruction"]
+    ports:
+      - containerPort: 3000
+    env:
+      - name: TMP_VAR
+        value: "smth"
+      #or value from map
+      - name: APP_COLOR
+        valueFrom:
+          configMapKeyRef:
+            name: app-config
+            key: APP_COLOR
+    envFrom:
+      - configMapRef:
+          #not a file itself
+          name: app-config
+    # or even volume
+    volumes:
+      - name: app-config-volume
+        configMap:
+          name: app-config
+
+
