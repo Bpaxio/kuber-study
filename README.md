@@ -25,7 +25,7 @@ It's required to limit resources of namespaces
 `kubectl apply -f pod-definition.yml` \
 `kubectl edit pod <pod-name>` only for props
 
-#### ResplicaSet
+#### ReplicaSet
 `kubectl create -f rs-definition.yml` \
 `kubectl get replicaset` \
 `kubectl delete replicaset ${name:myapp-rs}`
@@ -39,6 +39,25 @@ It's required to limit resources of namespaces
 `kubectl create -f deployment-definition.yml` \
 `kubectl get deployment` \
 `kubectl delete deployment ${name:myapp-deployment}`
+
+#### ConfigMap
+1)  Imperative way
+    ```shell script
+    kubectl create configmap \
+    <config-map-name> --from-literal=APP_COLOR=blue \
+                      --from-literal=APP_MOD=dev
+     ```
+1) Declarative way
+    ```shell script
+    kubectl create configmap \
+    <config-map-name> --from-file=<path-to-file>
+    ```
+    ```shell script
+    kubectl create configmap \
+    app-config --from-file=app-config-map.yaml
+    ```
+
+
 
 #### Imperative commands
 1) Create an NGINX Pod \
