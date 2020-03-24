@@ -9,11 +9,20 @@ metadata:
     type: application
 
 spec:
+  # it's a POD security setup
+  securityContext:
+    runAsUser: non-root
   containers:
   - name: nginx-container
     image: nginx
     command: ["overrides default ENTRYPOINT instruction"]
     args: ["overrides default CMD instruction"]
+    # Container security setup
+    securityContext:
+      runAsUser: non-root
+      # Available only at this level
+      capabilities:
+        add: ["MAC_ADMIN"]
     ports:
       - containerPort: 3000
     env:
