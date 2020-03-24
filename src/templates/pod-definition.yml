@@ -25,10 +25,18 @@ spec:
           configMapKeyRef:
             name: app-config
             key: APP_COLOR
+      #or secret value from hashed secret
+      - name: DB_USER
+        valueFrom:
+          secretKeyRef:
+            name: app-secret
+            key: DB_USER
     envFrom:
       - configMapRef:
           #not a file itself
           name: app-config
+      - secretRef:
+          name: app-secret
     # or even volume
     volumes:
       - name: app-config-volume

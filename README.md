@@ -40,7 +40,7 @@ It's required to limit resources of namespaces
 `kubectl get deployment` \
 `kubectl delete deployment ${name:myapp-deployment}`
 
-#### ConfigMap
+#### ConfigMap & Secrets
 1)  Imperative way
     ```shell script
     kubectl create configmap \
@@ -56,7 +56,7 @@ It's required to limit resources of namespaces
     kubectl create configmap \
     app-config --from-file=app-config-map.yaml
     ```
-
+Same with secrets -> `kubectl create secret ...` 
 
 
 #### Imperative commands
