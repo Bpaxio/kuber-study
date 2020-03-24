@@ -7,9 +7,18 @@ Kubernetes playground
 `kubectl run `
 `kubectl get all` - get info about all kubernetes components in cluster
 
+#### Namespace
+`kubectl create -f namespace-definition.yml` \
+`kubectl create namespace dev` \
+`kubectl config set-context $(kubectl config current-context) --namespace=dev` - set another namespace as default \
+`kubectl get pods --all-namespaces` 
+##### Resource Quota
+It's required to limit resources of namespaces
+`kubectl create -f rq-definition.yml`
+
 #### POD
 `kubectl create -f pod-definition.yml` \
-`kubectl get pods` \
+`kubectl get pods --namespace=default` \
 `kubectl delete pod ${name:myapp}` \
 ##### To edit POD definition
 `kubectl get pod <pod-name> -o yaml > pod-definition.yml` \
