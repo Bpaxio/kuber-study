@@ -58,7 +58,6 @@ It's required to limit resources of namespaces
     ```
 Same with secrets -> `kubectl create secret ...` 
 
-
 #### Imperative commands
 1) Create an NGINX Pod \
     `kubectl run --generator=run-pod/v1 nginx --image=nginx`
