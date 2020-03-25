@@ -58,6 +58,18 @@ It's required to limit resources of namespaces
     ```
 Same with secrets -> `kubectl create secret ...` 
 
+
+#### Taints & Toleration
+
+It prevents deploying intolerant apps to taint node. 
+It not specifies nodes where such pod should be placed. \
+`kubectl taint nodes <node-name> key=value:taint-effect` \
+`taint-effect` - when not tolerate to `key=value` -> can be NoSchedule | PreferNoSchedule | NoExecute
+
+Example for pod from `pod-definition.yml`: \
+`kubectl taint nodes node1 app=blue:NoSchedule`
+
+
 #### Imperative commands
 1) Create an NGINX Pod \
     `kubectl run --generator=run-pod/v1 nginx --image=nginx`

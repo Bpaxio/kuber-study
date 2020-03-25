@@ -58,5 +58,10 @@ spec:
       - name: app-config-volume
         configMap:
           name: app-config
+    tolerations:
+      - key: "app"
+        operator: "Equal"
+        value: "blue"
+        effect: "NoSchedule"
 
 
