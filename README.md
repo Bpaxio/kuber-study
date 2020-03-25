@@ -69,6 +69,36 @@ It not specifies nodes where such pod should be placed. \
 Example for pod from `pod-definition.yml`: \
 `kubectl taint nodes node1 app=blue:NoSchedule`
 
+#### Node Selectors & Affinity
+Gives a way how to place app to the instance, you want.
+
+1) Node Selector \
+   **pod-def.yaml**
+   ```yaml
+     kind: Pod
+     spec:
+       nodeSelector:
+         size: Large(Medium, Small)
+   ```
+1) Affinity <- more complexity
+   **pod-def.yaml**
+   ```yaml
+     kind: Pod
+     spec:
+       affinity:
+         nodeAffinity:
+           requiredDuringSchedulingIgnoredDuringExecution:
+             nodeSelectorTerms:
+             - matchExpressions:
+               - key: size
+                 operator: In
+                 values:
+                   - Large
+               - key: size
+                 operator: NotIn
+                 values:
+                   - Small
+   ```
 
 #### Imperative commands
 1) Create an NGINX Pod \
