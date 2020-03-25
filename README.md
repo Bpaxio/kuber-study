@@ -45,7 +45,13 @@ Use `--record` to set CHANGE-CAUSE column in `rollout history` command \
 `kubectl rollout history deployment ${name:myapp-deployment}` \
 `kubectl rollout undo deployment ${name:myapp-deployment}`
 
-#### Job & CronJob
+#### Services
+  Creates through all nodes of cluster
+##### Types:
+1) NodePort - for external requests routing (30000-32767)
+1) ClusterIP - for internal communication between pods in different groups
+1) LoadBalancer
+
 
 
 
