@@ -36,9 +36,18 @@ It's required to limit resources of namespaces
 3) `kubectl scale --replicas=6 -f ${type:replicaset} ${name:myapp-rs}` (not modified def file)
 
 #### Deployment
-`kubectl create -f deployment-definition.yml` \
+`kubectl create -f deployment-definition.yml --revision=1` \
+Use `--record` to set CHANGE-CAUSE column in `rollout history` command \
+`kubectl apply -f deployment-definition.yml` \
 `kubectl get deployment` \
-`kubectl delete deployment ${name:myapp-deployment}`
+`kubectl delete deployment ${name:myapp-deployment}` \
+`kubectl rollout status deployment ${name:myapp-deployment}` \
+`kubectl rollout history deployment ${name:myapp-deployment}` \
+`kubectl rollout undo deployment ${name:myapp-deployment}`
+
+#### Job & CronJob
+
+
 
 #### ConfigMap & Secrets
 1)  Imperative way
