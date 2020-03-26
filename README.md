@@ -52,7 +52,12 @@ Use `--record` to set CHANGE-CAUSE column in `rollout history` command \
 1) ClusterIP - for internal communication between pods in different groups
 1) LoadBalancer
 
-
+#### Ingress
+`kubectl create -f ingress-host-path-definition.yml && kubectl create -f ingress-host-rule-definition.yml ` \
+It creates routing between 2 different services based on 
+[host](src/templates/network/ingress-host-rule-definition.yml) 
+or [path](src/templates/network/ingress-path-rule-definition.yml) of the request. \
+Also ingress has a default backend(for 404-error purposes or smth else)
 
 
 #### ConfigMap & Secrets
